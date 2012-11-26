@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<deployment-plan xmlns="http://xmlns.oracle.com/weblogic/deployment-plan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.oracle.com/weblogic/deployment-plan http://xmlns.oracle.com/weblogic/deployment-plan/1.0/deployment-plan.xsd" global-variables="false">
+  <application-name>UsingContextParams.ear</application-name>
+
+  <variable-definition>
+      <variable>
+          <name>stringParamVar</name>
+          <value>Changed Value of the String Parameter</value>
+      </variable>
+     <variable>
+          <name>intParamVar</name>
+          <value>abracadabra</value>
+      </variable> 
+ </variable-definition>
+
+  <module-override>
+    <module-name>UsingContextParams_ViewController_webapp1.war</module-name>
+    <module-type>war</module-type>
+
+    <module-descriptor external="false">
+      <root-element>web-app</root-element>
+      <uri>WEB-INF/web.xml</uri>
+      <variable-assignment>
+         <name>stringParamVar</name>
+         <xpath>/web-app/context-param/[param-name="myStringParam"]/param-value</xpath>
+         <operation>add</operation>
+      </variable-assignment>
+      <variable-assignment>
+         <name>intParamVar</name>
+         <xpath>/web-app/context-param/[param-name="myIntParam"]/param-value</xpath>
+         <operation>add</operation>
+      </variable-assignment>
+	  </module-descriptor>
+
+  </module-override>
+  <config-root>d:/work/source/adf/_STRUCTURED/Architecture/StoringConfigurationValues/plan</config-root>
+</deployment-plan>
