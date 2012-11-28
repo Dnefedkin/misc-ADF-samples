@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelSplitter orientation="vertical" splitterPosition="50" id="ps1">
+          <f:facet name="first"/>
+          <f:facet name="second">
+            <af:decorativeBox id="db1" theme="medium">
+              <f:facet name="center">
+                <af:decorativeBox id="db2" theme="light">
+                  <f:facet name="center">
+                    <af:panelGroupLayout id="pgl1" layout="vertical"/>
+                  </f:facet>
+                  <f:facet name="top">
+                    <af:panelHeader text="Logged as #{securityContext.userName}" id="ph1">
+                      <f:facet name="context"/>
+                      <f:facet name="menuBar"/>
+                      <f:facet name="toolbar"/>
+                      <f:facet name="legend"/>
+                      <f:facet name="info"/>
+                    </af:panelHeader>
+                  </f:facet>
+                </af:decorativeBox>
+              </f:facet>
+              <f:facet name="top"/>
+            </af:decorativeBox>
+            <!-- id="af_one_column_header_stretched_with_splitter"   -->
+          </f:facet>
+        </af:panelSplitter>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
