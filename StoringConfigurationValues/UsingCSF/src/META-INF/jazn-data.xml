@@ -25,10 +25,6 @@
               <type>user</type>
               <name>user1</name>
             </member>
-            <member>
-              <type>user</type>
-              <name>user2</name>
-            </member>
           </members>
         </role>
       </roles>
@@ -47,6 +43,10 @@
               <member>
                 <name>myapp-group</name>
                 <class>oracle.security.jps.internal.core.principals.JpsXmlEnterpriseRoleImpl</class>
+              </member>
+              <member>
+                <name>user2</name>
+                <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
               </member>
             </members>
           </app-role>

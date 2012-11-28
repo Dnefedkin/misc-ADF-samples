@@ -9,19 +9,186 @@
       <af:messages id="m1"/>
       <af:form id="f1">
         <af:panelSplitter orientation="vertical" splitterPosition="50" id="ps1">
-          <f:facet name="first"/>
           <f:facet name="second">
             <af:decorativeBox id="db1" theme="medium">
               <f:facet name="center">
                 <af:decorativeBox id="db2" theme="light">
                   <f:facet name="center">
-                    <af:panelGroupLayout id="pgl1" layout="vertical"/>
+
+                      <af:panelSplitter id="ps2" orientation="vertical"
+                                        splitterPosition="136">
+                        <f:facet name="first">
+                          <af:panelBox text="Get Generic CSF setting as string"
+                                       id="pb1">
+                            <f:facet name="toolbar"/>
+                            <af:panelFormLayout id="pfl1">
+                              <af:inputText value="#{bindings.credMap.inputValue}"
+                                            label="#{bindings.credMap.hints.label}"
+                                            required="#{bindings.credMap.hints.mandatory}"
+                                            columns="#{bindings.credMap.hints.displayWidth}"
+                                            maximumLength="#{bindings.credMap.hints.precision}"
+                                            shortDesc="#{bindings.credMap.hints.tooltip}"
+                                            id="it1">
+                                <f:validator binding="#{bindings.credMap.validator}"/>
+                              </af:inputText>
+                              <af:inputText value="#{bindings.credKey.inputValue}"
+                                            label="#{bindings.credKey.hints.label}"
+                                            required="#{bindings.credKey.hints.mandatory}"
+                                            columns="#{bindings.credKey.hints.displayWidth}"
+                                            maximumLength="#{bindings.credKey.hints.precision}"
+                                            shortDesc="#{bindings.credKey.hints.tooltip}"
+                                            id="it2">
+                                <f:validator binding="#{bindings.credKey.validator}"/>
+                              </af:inputText>
+                              <af:commandButton actionListener="#{bindings.getGenericSettingAsString.execute}"
+                                                text="getGenericSettingAsString"
+                                                disabled="#{!bindings.getGenericSettingAsString.enabled}"
+                                                id="cb1"/>
+                            </af:panelFormLayout>
+                            <af:outputText value="Returned: #{bindings.Return.inputValue}"
+                                           id="ot1"/>
+                          </af:panelBox>
+                        </f:facet>
+                        <f:facet name="second">
+                          <af:panelSplitter id="ps3" orientation="horizontal"
+                                            splitterPosition="366">
+                            <f:facet name="first">
+                              <af:panelBox text="Get Generic CSF setting as Map"
+                                           id="pb2">
+                                <f:facet name="toolbar"/>
+                                <af:panelGroupLayout id="pgl2"
+                                                     layout="vertical">
+                                  <af:panelFormLayout id="pfl2">
+                                    <af:inputText value="#{bindings.credMap1.inputValue}"
+                                                  label="#{bindings.credMap1.hints.label}"
+                                                  required="#{bindings.credMap1.hints.mandatory}"
+                                                  columns="#{bindings.credMap1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.credMap1.hints.precision}"
+                                                  shortDesc="#{bindings.credMap1.hints.tooltip}"
+                                                  id="it3">
+                                      <f:validator binding="#{bindings.credMap1.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.credKey1.inputValue}"
+                                                  label="#{bindings.credKey1.hints.label}"
+                                                  required="#{bindings.credKey1.hints.mandatory}"
+                                                  columns="#{bindings.credKey1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.credKey1.hints.precision}"
+                                                  shortDesc="#{bindings.credKey1.hints.tooltip}"
+                                                  id="it4">
+                                      <f:validator binding="#{bindings.credKey1.validator}"/>
+                                    </af:inputText>
+                                    <af:commandButton actionListener="#{bindings.getGenericSettingAsMap.execute}"
+                                                      text="getGenericSettingAsMap"
+                                                      disabled="#{!bindings.getGenericSettingAsMap.enabled}"
+                                                      id="cb2"/>
+                                  </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                              <af:spacer width="10" height="10" id="s1"/>
+                              <af:panelGroupLayout id="pgl3"
+                                                     layout="vertical">
+                                <af:panelCollection id="pc1">
+                                  <f:facet name="menus"/>
+                                  <f:facet name="toolbar"/>
+                                  <f:facet name="statusbar"/>
+                                  <af:table value="#{bindings.Pair.collectionModel}"
+                                            var="row"
+                                            rows="#{bindings.Pair.rangeSize}"
+                                            emptyText="#{bindings.Pair.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                            fetchSize="#{bindings.Pair.rangeSize}"
+                                            rowBandingInterval="0" id="t1">
+                                    <af:column sortProperty="code"
+                                               sortable="false"
+                                               headerText="#{bindings.Pair.hints.code.label}"
+                                               id="c2">
+                                      <af:outputText value="#{row.code}"
+                                                     id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="value"
+                                               sortable="false"
+                                               headerText="#{bindings.Pair.hints.value.label}"
+                                               id="c1">
+                                      <af:outputText value="#{row.value}"
+                                                     id="ot3"/>
+                                    </af:column>
+                                  </af:table>
+                                </af:panelCollection>
+                              </af:panelGroupLayout>
+                              </af:panelBox>
+                            </f:facet>
+                            <f:facet name="second">
+                            <af:panelBox text="Get Credential CSF Setting" id="pb3">
+                              <f:facet name="toolbar"/>
+                              <af:panelGroupLayout id="pgl4" layout="vertical">
+                                <af:panelFormLayout id="pfl3">
+                                  <af:inputText value="#{bindings.credMap2.inputValue}"
+                                                label="#{bindings.credMap2.hints.label}"
+                                                required="#{bindings.credMap2.hints.mandatory}"
+                                                columns="#{bindings.credMap2.hints.displayWidth}"
+                                                maximumLength="#{bindings.credMap2.hints.precision}"
+                                                shortDesc="#{bindings.credMap2.hints.tooltip}"
+                                                id="it5">
+                                    <f:validator binding="#{bindings.credMap2.validator}"/>
+                                  </af:inputText>
+                                  <af:inputText value="#{bindings.credKey2.inputValue}"
+                                                label="#{bindings.credKey2.hints.label}"
+                                                required="#{bindings.credKey2.hints.mandatory}"
+                                                columns="#{bindings.credKey2.hints.displayWidth}"
+                                                maximumLength="#{bindings.credKey2.hints.precision}"
+                                                shortDesc="#{bindings.credKey2.hints.tooltip}"
+                                                id="it6">
+                                    <f:validator binding="#{bindings.credKey2.validator}"/>
+                                  </af:inputText>
+                                  <af:commandButton actionListener="#{bindings.getPasswordSetting.execute}"
+                                                    text="getPasswordSetting"
+                                                    disabled="#{!bindings.getPasswordSetting.enabled}"
+                                                    id="cb3"/>
+                                </af:panelFormLayout>
+                              </af:panelGroupLayout>
+                              <af:spacer width="10" height="10" id="s2"/>
+                              <af:panelGroupLayout id="pgl1" layout="vertical">
+                                <af:panelCollection id="pc2">
+                                  <f:facet name="menus"/>
+                                  <f:facet name="toolbar"/>
+                                  <f:facet name="statusbar"/>
+                                  <af:table value="#{bindings.Pair1.collectionModel}"
+                                            var="row"
+                                            rows="#{bindings.Pair1.rangeSize}"
+                                            emptyText="#{bindings.Pair1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                            fetchSize="#{bindings.Pair1.rangeSize}"
+                                            rowBandingInterval="0" id="t3">
+                                    <af:column sortProperty="code"
+                                               sortable="false"
+                                               headerText="#{bindings.Pair1.hints.code.label}"
+                                               id="c3">
+                                      <af:outputText value="#{row.code}"
+                                                     id="ot5"/>
+                                    </af:column>
+                                    <af:column sortProperty="value"
+                                               sortable="false"
+                                               headerText="#{bindings.Pair1.hints.value.label}"
+                                               id="c4">
+                                      <af:outputText value="#{row.value}"
+                                                     id="ot4"/>
+                                    </af:column>
+                                  </af:table>
+                                </af:panelCollection>
+                              </af:panelGroupLayout>
+                            </af:panelBox>
+                          </f:facet>
+                          </af:panelSplitter>
+                        </f:facet>
+                      </af:panelSplitter>
                   </f:facet>
                   <f:facet name="top">
                     <af:panelHeader text="Logged as #{securityContext.userName}" id="ph1">
                       <f:facet name="context"/>
                       <f:facet name="menuBar"/>
-                      <f:facet name="toolbar"/>
+                      <f:facet name="toolbar">
+                        <af:toolbar id="t2">
+                          <af:goLink text=" #{securityContext.authenticated ? &quot;Logout&quot; : &quot;Login&quot;}" id="gl1" destination='#{securityContext.authenticated ? "/adfAuthentication?logout=true&amp;end_url=/faces/main.jspx" 
+: "/adfAuthentication?success_url=/faces/main.jspx"}'/>
+                        </af:toolbar>
+                      </f:facet>
                       <f:facet name="legend"/>
                       <f:facet name="info"/>
                     </af:panelHeader>

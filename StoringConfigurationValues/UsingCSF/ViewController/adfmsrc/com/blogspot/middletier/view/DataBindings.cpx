@@ -2,9 +2,16 @@
 <Application xmlns="http://xmlns.oracle.com/adfm/application"
              version="11.1.1.61.92" id="DataBindings" SeparateXMLFiles="false"
              Package="com.blogspot.middletier.view" ClientType="Generic">
-  <pageMap/>
-  <pageDefinitionUsages/>
+  <pageMap>
+    <page path="/main.jspx" usageId="com_blogspot_middletier_view_mainPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_blogspot_middletier_view_mainPageDef"
+          path="com.blogspot.middletier.view.pageDefs.mainPageDef"/>
+  </pageDefinitionUsages>
   
   <dataControlUsages>
+    <dc id="CSFContextWrapper"
+        path="com.blogspot.middletier.view.CSFContextWrapper"/>
   </dataControlUsages>
 </Application>

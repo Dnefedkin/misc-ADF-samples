@@ -3,6 +3,118 @@
                 version="11.1.1.61.92" id="mainPageDef"
                 Package="com.blogspot.middletier.view.pageDefs">
   <parameters/>
-  <executables/>
-  <bindings/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="getGenericSettingAsString_Return"
+                IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.getGenericSettingAsString.result}"/>
+      <variable Type="java.lang.String" Name="getGenericSettingAsString_credMap"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="getGenericSettingAsString_credKey"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="getGenericSettingAsMap_credMap"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="getGenericSettingAsMap_credKey"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="getPasswordSetting_credMap"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="getPasswordSetting_credKey"
+                IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="getGenericSettingAsMap.result"
+                    DataControl="CSFContextWrapper" RangeSize="25"
+                    BeanClass="com.blogspot.middletier.view.utils.Pair"
+                    id="getGenericSettingAsMapIterator"
+                    RefreshCondition="#{(bindings.credMap1.inputValue ne null) and (bindings.credKey1.inputValue ne null) }"/>
+    <methodIterator Binds="getPasswordSetting.result"
+                    DataControl="CSFContextWrapper" RangeSize="25"
+                    BeanClass="com.blogspot.middletier.view.utils.Pair"
+                    id="getPasswordSettingIterator"
+                    RefreshCondition="#{(bindings.credMap2.inputValue ne null) and (bindings.credKey2.inputValue ne null) }"/>
+  </executables>
+  <bindings>
+    <methodAction id="getGenericSettingAsString" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getGenericSettingAsString"
+                  IsViewObjectMethod="false" DataControl="CSFContextWrapper"
+                  InstanceName="CSFContextWrapper.dataProvider"
+                  ReturnName="data.CSFContextWrapper.methodResults.getGenericSettingAsString_CSFContextWrapper_dataProvider_getGenericSettingAsString_result">
+      <NamedData NDName="credMap" NDType="java.lang.String"
+                 NDValue="${bindings.getGenericSettingAsString_credMap}"/>
+      <NamedData NDName="credKey" NDType="java.lang.String"
+                 NDValue="${bindings.getGenericSettingAsString_credKey}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="credMap">
+      <AttrNames>
+        <Item Value="getGenericSettingAsString_credMap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="credKey">
+      <AttrNames>
+        <Item Value="getGenericSettingAsString_credKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="Return">
+      <AttrNames>
+        <Item Value="getGenericSettingAsString_Return"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getGenericSettingAsMap" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getGenericSettingAsMap"
+                  IsViewObjectMethod="false" DataControl="CSFContextWrapper"
+                  InstanceName="CSFContextWrapper.dataProvider"
+                  ReturnName="data.CSFContextWrapper.methodResults.getGenericSettingAsMap_CSFContextWrapper_dataProvider_getGenericSettingAsMap_result">
+      <NamedData NDName="credMap" NDType="java.lang.String"
+                 NDValue="${bindings.getGenericSettingAsMap_credMap}"/>
+      <NamedData NDName="credKey" NDType="java.lang.String"
+                 NDValue="${bindings.getGenericSettingAsMap_credKey}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="credMap1">
+      <AttrNames>
+        <Item Value="getGenericSettingAsMap_credMap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="credKey1">
+      <AttrNames>
+        <Item Value="getGenericSettingAsMap_credKey"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="getGenericSettingAsMapIterator" id="Pair">
+      <nodeDefinition DefName="com.blogspot.middletier.view.utils.Pair"
+                      Name="Pair0">
+        <AttrNames>
+          <Item Value="code"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getPasswordSetting" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getPasswordSetting"
+                  IsViewObjectMethod="false" DataControl="CSFContextWrapper"
+                  InstanceName="CSFContextWrapper.dataProvider"
+                  ReturnName="data.CSFContextWrapper.methodResults.getPasswordSetting_CSFContextWrapper_dataProvider_getPasswordSetting_result">
+      <NamedData NDName="credMap" NDType="java.lang.String"
+                 NDValue="${bindings.getPasswordSetting_credMap}"/>
+      <NamedData NDName="credKey" NDType="java.lang.String"
+                 NDValue="${bindings.getPasswordSetting_credKey}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="credMap2">
+      <AttrNames>
+        <Item Value="getPasswordSetting_credMap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="credKey2">
+      <AttrNames>
+        <Item Value="getPasswordSetting_credKey"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="getPasswordSettingIterator" id="Pair1">
+      <nodeDefinition DefName="com.blogspot.middletier.view.utils.Pair"
+                      Name="Pair10">
+        <AttrNames>
+          <Item Value="code"/>
+          <Item Value="value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>
