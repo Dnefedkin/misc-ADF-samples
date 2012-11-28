@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="CSFContextWrapper" Package="com.blogspot.middletier.view.utils"
+          BeanClass="com.blogspot.middletier.view.utils.CSFContextWrapper"
+          isJavaBased="true">
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="getGenericSettingAsString" ReturnNodeName="Return">
+    <ParameterInfo id="credMap" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="credKey" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="com.blogspot.middletier.view.utils.Pair"
+                  BeanClass="com.blogspot.middletier.view.utils.Pair"
+                  id="getGenericSettingAsMap" ReturnNodeName="Pair"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="credMap" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="credKey" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="com.blogspot.middletier.view.utils.Pair"
+                  BeanClass="com.blogspot.middletier.view.utils.Pair"
+                  id="getPasswordSetting" ReturnNodeName="Pair"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="credMap" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="credKey" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="com.blogspot.middletier.view.utils.CSFContextWrapper"
+                     BeanClass="com.blogspot.middletier.view.utils.CSFContextWrapper"
+                     id="CSFContextWrapper"/>
+</JavaBean>

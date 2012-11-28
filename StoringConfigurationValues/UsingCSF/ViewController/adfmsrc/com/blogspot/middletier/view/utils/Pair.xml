@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="Pair" Package="com.blogspot.middletier.view.utils"
+          BeanClass="com.blogspot.middletier.view.utils.Pair"
+          isJavaBased="true">
+  <Attribute Name="code" Type="java.lang.String"/>
+  <Attribute Name="value" Type="java.lang.Object"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="com.blogspot.middletier.view.utils.Pair"
+                     BeanClass="com.blogspot.middletier.view.utils.Pair"
+                     id="Pair">
+    <ParameterInfo id="code" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="value" Type="java.lang.Object" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="com.blogspot.middletier.view.utils.Pair"
+                     BeanClass="com.blogspot.middletier.view.utils.Pair"
+                     id="Pair"/>
+</JavaBean>
